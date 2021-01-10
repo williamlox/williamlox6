@@ -47,18 +47,18 @@
 </nav>
 <!-- 只有登入者才有權限 -->
 @auth
-<form method='POST' action="/insert/">
+<form method='POST' action="/insert/" style="margin-bottom:20px"  onsubmit='check();return false;'id='reg' name='reg'>
 @csrf
 最新消息 : <input type=text size=40 name=title>
-<input type=submit value="新增">
+<input type=submit value="發佈" class="btn btn-success">
 </form>
 @endauth
-<table class="table table-striped"> 
+<table class="table table-striped table-hover"> 
     <tr>
       <th>編號</th><th>馬路消息</th><th>張貼時間</th><th>編輯</th>
     </tr>
     @foreach ($titles as $item)
-    <tr>
+    <tr class="tableth">
       <td> {{$item->id}} </td>
       <td> {{$item->title}} </td>
       <td> {{$item->created_at}} </td>
